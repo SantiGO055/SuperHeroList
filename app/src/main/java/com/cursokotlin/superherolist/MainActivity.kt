@@ -6,15 +6,48 @@ import android.os.Parcelable
 import android.util.Log
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import org.imaginativeworld.whynotimagecarousel.ImageCarousel
+import org.imaginativeworld.whynotimagecarousel.model.CarouselItem
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        val carousel: ImageCarousel = findViewById(R.id.carousel)
+        carousel.registerLifecycle(lifecycle)
+        val list = mutableListOf<CarouselItem>()
+        list.add(
+            CarouselItem(
+                imageUrl  = "https://images.unsplash.com/photo-1637637187692-9736fe7b7973?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDF8eGpQUjRobGtCR0F8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60",
+                caption  = "Photo by Aaron Wu on Unsplash"
+            )
+        )
+        list.add(
+            CarouselItem(
+                imageUrl = "https://images.unsplash.com/photo-1605136233271-aa0d6fff3e7c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDJ8eGpQUjRobGtCR0F8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60",
+                caption  = "default"
+            )
+        )
+        list.add(
+            CarouselItem(
+                imageUrl  = "https://images.unsplash.com/photo-1638192820156-0c8fdc872355?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDl8eGpQUjRobGtCR0F8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60",
+                caption  = "Photo by Aaron Wu on Unsplash"
+            )
+        )
+        list.add(
+            CarouselItem(
+                imageUrl = "https://images.unsplash.com/photo-1633970225474-d04e56b12beb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDIwfHhqUFI0aGxrQkdBfHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
+                caption  = "default"
+            )
+        )
+
+        carousel.setData(list)
+
         setUpRecyclerView()
     }
     private fun setUpRecyclerView(){
-        lateinit var mRecyclerView : RecyclerView
+        lateinit var mRecyclerView: RecyclerView
         val mAdapter : RecyclerAdapter = RecyclerAdapter()
 
         mRecyclerView = findViewById<RecyclerView>(R.id.rvSuperHeroList)

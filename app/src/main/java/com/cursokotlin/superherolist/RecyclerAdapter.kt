@@ -62,6 +62,7 @@ class RecyclerAdapter:RecyclerView.Adapter<RecyclerAdapter.HeroHolder>() {
                 Toast.makeText(context, superhero.superhero, Toast.LENGTH_LONG).show() }
             )
             avatar.loadUrl(superhero.photo)
+
         }
         private fun ImageView.loadUrl(url: String) {
             Picasso.get().load(url).into(this)
