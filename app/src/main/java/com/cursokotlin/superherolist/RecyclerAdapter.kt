@@ -59,7 +59,7 @@ class RecyclerAdapter:RecyclerView.Adapter<RecyclerAdapter.HeroHolder>() {
             publisher.text = superhero.publisher
             itemView.setOnClickListener(View.OnClickListener {
 
-                Toast.makeText(context, superhero.superhero, Toast.LENGTH_LONG).show() }
+                Toast.makeText(context, superhero.superhero, Toast.LENGTH_SHORT).show() }
             )
             avatar.loadUrl(superhero.photo)
 
